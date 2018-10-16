@@ -2,7 +2,7 @@ sudo: required
 
 services:
   - docker
-  
+
 before_install:
   - docker build -t haiderlasani/react-test -f ./client/Dockerfile.dev ./client
 
@@ -21,3 +21,5 @@ after_success:
   - docker push haiderlasani/multi-nginx
   - docker push haiderlasani/multi-server
   - docker push haiderlasani/multi-worker
+deploy:
+  provider: elasticbeanstalk
